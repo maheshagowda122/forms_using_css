@@ -1,0 +1,193 @@
+<head>
+    <link rel="stylesheet" href="Styles1.css">
+    <style>
+        body{
+            background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+        }
+        fieldset{
+            width: 450px;
+            border-radius: 40px;
+            border: 4px solid black;
+        }
+        input:required{
+            border: 3px solid red;
+        }
+        input:optional{
+            border: 2px dashed green;
+        }
+        input[read-only]{
+            background-color: yellowgreen;
+            color: blue;
+            font-weight: 900;
+        }
+        input[type="radio"]:checked{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+        input[type="radio"]:checked + label{
+            
+            color: red;
+            font-weight: 700;
+        }
+        select:optional{
+            background-color: blueviolet;
+            border-radius: 20px;
+            width: 100px;
+        }
+        input:focus{
+            display: inline;
+            background-color: darkorange;
+            font-weight: 600;
+            color: black;
+        }
+        p{
+            display: none;
+        }
+        input:hover+p{
+            display: inline;
+            color: black;
+            background-color: yellow;
+            font-weight: 700;
+        }
+        img {
+            display: none;
+        }
+
+        input[type="email"]:focus:valid ~img.valid{
+            display: inline;
+            width: 15px;
+            height: 15px;
+        }
+        input[type="email"]:focus:invalid ~img.invalid{
+            display: inline;
+            width: 15px;
+            height: 15px;
+        }
+        input[type="number"]:focus:valid ~img.valid{
+            display: inline;
+            width: 15px;
+            height: 15px;
+        }
+        input[type="number"]:focus:invalid ~img.invalid{
+            display: inline;
+            width: 15px;
+            height: 15px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <form action="http://127.0.0.1:5500/forms1.html">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <table>
+                <tr>
+        
+                    <td><label for="">FirstName</label></td>
+                    <td><input type="text" placeholder="Ex- Mahesh" required> <p>Enter your First name</p><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">LastName</label></td>
+                    <td><input type="text" placeholder="Ex- H N"> <p>Enter your last name</p> <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">DOB</label></td>
+                    <td><input type="date" placeholder="17/03/2002" required> <p>Enter your Dob</p> <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Email</label></td>
+                    <td><input type="email" placeholder="m60172887@gmail.com" name="mail" size="15" required> 
+                        <img src="i1.png" class="valid">
+                        <img src="images.png" class="invalid"> <br></td>
+                </tr>
+                <tr>
+                    <td><label for="">PhoneNumber</label></td>
+                    <td><input type="tel" pattern="[6-9]{1}[0-9]{9}" placeholder="EX- 73838387393" required>
+                        
+                        <p>Enter PhoneNumber</p><br></td>
+                </tr>
+                <tr>
+                    <td><label for="">Password</label></td>
+           
+                    <td> <input type="password" required><p>Atleast provide 1 uppercase, 1 lowercase</p> <br></td>
+                </tr>
+                <tr>
+                    <td><label for="">Re-Password</label></td>
+           
+                    <td> <input type="password" required><p>Confirm your password</p> <br></td>
+                </tr>
+                <tr>
+                    <td><label for="">Gender</label></td>
+                    <td><input type="radio" name="Gender" id="M"><label for="">Male</label> 
+                        <input type="radio" name="Gender" id="F"><label for="">Female</label>
+                        <input type="radio" name="Gender" id="O"><label for="">Other</label><br></td>
+                </tr>
+                <tr>
+                    <td><label for="">Age</label></td>
+                    <td><input type="number" name="age" min="18" max="100">
+                    <img class="valid" src="i1.png">
+                    <img class="invalid" src="images.png" ></td><br>
+                </tr>
+        
+                <tr>
+                    <td><label for="">Select Country</label></td>
+                    <td>
+                        <select name="" id="">
+                            <option value="">India</option>
+                            <option value="">china</option>
+                            <option value="">japan</option>
+                            <option value="">Australia</option>
+                            <option value="">Nepal</option>
+                            <option value="">Bangla</option>
+                            <option value="">Russian</option> <br>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">ChooseFile</label></td>
+                    <td><input type="file"> <br></td>
+                </tr>
+                <tr>
+                    <td><input type="reset"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <legend>Course Details</legend>
+            <table>
+                <tr>
+                    <td> <label for="">Select Course</label></td>
+                    <td><select name="" id="">
+                        <option value="">Python</option>
+                        <option value="">Java</option>
+                        <option value="">MOngoDb</option>
+                        <option value="">Sql</option>
+                        <option value="">Javascript</option>
+                    </select> <br></td>
+                </tr>
+                <tr>
+                    <td><label for="">Select Payement mode</label></td>
+                    <td><input type="radio" name="Mode" id="O">Online</td>
+                    <td><input type="radio" name="Mode" id="of">Offline</td> <br>
+                </tr>
+                <tr>
+                    <td><label for="">Institute</label></td>
+                    <td><input type="text" name="Institute" value="Tap Academy" size="15" read-only></td>
+                </tr>
+            </table>
+           
+            <label for="">Comments</label> <br>
+            <textarea name="" id="" cols="50" rows="10"></textarea> <br>
+            
+
+            <input type="submit">
+        </fieldset>
+    </form>
+
+</body>
